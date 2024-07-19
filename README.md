@@ -13,27 +13,65 @@ The client (user) makes a request, and Flask, a web framework, handles the HTTP 
 
 Beyond these frameworks, unittest and coverage (Python) were used to implement automated testing.
 
-## How to Run 
+## How to Run 🚀
 
-Cansado de READMEs chatos e monótonos? Dê uma olhada nos nossos [templates de repositório](https://github.com/DiasEllen26/template-readme/tree/main/repositorio) e deixe seus projetos brilharem! Nossos modelos oferecem uma estrutura flexível e divertida para documentar seu projeto, incluindo seções para descrição, instalação, uso, contribuição e licença.
+To run the project, follow this steps:
 
-## Status 🚀
+### Run Docker
+```
+docker run -d -p 6379:6379 redis
+```
 
-Deixe o mundo saber como está o seu projeto! Adicione cards de status e informe o estado do build, cobertura de testes, análise de código e muito mais. Os cards de status são uma maneira divertida e visual de fornecer informações importantes sobre o seu projeto.
+### Run Celery
+```
+celery -A tasks worker --loglevel=info
+```
 
-## Linguagens 🚀
 
-Mostre suas habilidades de programação com estilo! Utilize nossos ícones de linguagens para destacar as tecnologias envolvidas em seus projetos. Esses ícones são amplamente reconhecidos pela comunidade de desenvolvedores e adicionam um toque especial ao seu README.
+### Run Services
+```
+python .\services.py
+```
 
----
+If you'd like, you can see the project in action with some examples. Below are two examples (POST and GET). To run these examples, open a new terminal in the same directory as the project and enter the commands. For the GET example, you will need to replace the request_id value (the example uses 6861a88e-4bd8-4ee6-a904-b16d88a08716).
 
-## Contribuição 🤝📚😄
+### Examples
 
-Este é um projeto de código aberto e adoraríamos receber contribuições da comunidade de desenvolvedores! Sinta-se à vontade para fazer fork deste repositório, trabalhar em melhorias e enviar pull requests para análise.
+#### POST
+```
+$headers = @{
+>>     "Content-Type" = "application/json"
+>> }
+>>
+>> $body = @{
+>>     user_id = "user123"
+>>     city_ids = @(3480822)
+>> } | ConvertTo-Json
+>> 
+>> Invoke-RestMethod -Uri "http://127.0.0.1:5000/weather" -Method POST -Headers $headers -Body $body
+```
 
-Se você encontrar problemas ou tiver sugestões, abra uma issue e teremos prazer em discuti-las.
+#### GET
+```
+Invoke-RestMethod -Uri "http://127.0.0.1:5000/weather/6861a88e-4bd8-4ee6-a904-b16d88a08716" -Method GET 
+```
 
-Lembre-se de seguir as diretrizes de contribuição do projeto e respeitar o código de conduta.
+## How to Test🚀
 
-Junte-se a nós para tornar este projeto ainda mais incrível!
+To test the project, follow this steps:
+
+#### Run test
+```
+python -m unittest test_tasks
+```
+
+#### Verify Coverage
+```
+coverage run -m unittest test_tasks
+```
+
+```
+coverage report
+coverage html
+```
 
