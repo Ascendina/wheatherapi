@@ -6,6 +6,9 @@ A distributed system to obtain weather data from the free weather API using Pyth
 
 Você é único e seu perfil do GitHub também deve ser! Explore nosso diretório de [templates de perfil](https://github.com/DiasEllen26/template-readme/tree/main/perfil) para encontrar exemplos incríveis que o ajudarão a se destacar da multidão. Mostre ao mundo suas habilidades, projetos em destaque e muito mais!
 
+![ProjectDiagram](https://github.com/Ascendina/wheatherapi/blob/main/diagrama_flask_celery_redis.png)
+
+
 ## Templates de Repositório 📚
 
 Cansado de READMEs chatos e monótonos? Dê uma olhada nos nossos [templates de repositório](https://github.com/DiasEllen26/template-readme/tree/main/repositorio) e deixe seus projetos brilharem! Nossos modelos oferecem uma estrutura flexível e divertida para documentar seu projeto, incluindo seções para descrição, instalação, uso, contribuição e licença.
